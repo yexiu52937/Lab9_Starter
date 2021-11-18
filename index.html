@@ -87,6 +87,14 @@
     </section>
   </main>
 
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "aeff0b6f45404dc8804dce0703f0a8f8"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+
   <script>
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
@@ -102,6 +110,80 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    class MyCustomError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "MyCustomError";
+      }
+    }
+
+    function testError() {
+      throw new Error("Congratulation! U find MyCustomError!!");
+    }
+
+    errorBtns[0].addEventListener('click', (e)=>{
+      console.log('output');
+    })
+    errorBtns[1].addEventListener('click', (e)=>{
+      console.error('output');
+    })
+    errorBtns[2].addEventListener('click', (e)=>{
+      console.count('output');
+    })
+    errorBtns[3].addEventListener('click', (e)=>{
+      console.warn('output');
+    })
+    errorBtns[4].addEventListener('click', (e)=>{
+      let x = 5;
+      let y = 3;
+      const reason = 'x is expected to be less than y';
+      console.assert(x < y, {x, y, reason});
+    })
+    errorBtns[5].addEventListener('click', (e)=>{
+      console.clear('output');
+    })
+    errorBtns[6].addEventListener('click', (e)=>{
+      console.dir(errorBtns);
+    })
+    errorBtns[7].addEventListener('click', (e)=>{
+      console.dirxml(errorBtns);
+    })
+    errorBtns[8].addEventListener('click', (e)=>{
+      console.group('output');
+    })
+    errorBtns[9].addEventListener('click', (e)=>{
+      console.groupEnd('output');
+    })
+    errorBtns[10].addEventListener('click', (e)=>{
+      console.table(errorBtns);
+    })
+    errorBtns[11].addEventListener('click', (e)=>{
+      console.time();
+    })
+    errorBtns[12].addEventListener('click', (e)=>{
+      console.timeEnd();
+    })
+    errorBtns[13].addEventListener('click', (e)=>{
+      console.trace('output');
+    })
+    errorBtns[14].addEventListener('click', (e)=>{
+      throw new Error("fail");
+    })
+
+    try {
+      this.testError();
+    } catch(err) {
+      console.log(err.message);
+    }
+    try{
+      console.log(output);
+    } catch (err) {
+      throw new Error("output is undefined");
+    } finally {
+      console.log('Ignore it and you are good');
+    }
+
+    TrackJS.track('Testing TrackJS!');
   </script>
 </body>
 
