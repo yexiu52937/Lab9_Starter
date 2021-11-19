@@ -1,3 +1,3 @@
 # Lab 9 - Starter
 Name: Yifan Hou\
-Published page: https://github.com/yexiu52937/Lab9_Starter
+Published page: https://yexiu52937.github.io/Lab9_Starter/
